@@ -11,7 +11,7 @@ namespace maze_generator
         static void Main(string[] args)
         {
             Random random = new Random();
-
+            // Hello
             // Some variables:
             int nodesWidth = 42;
             int coordsWidth = 2 * nodesWidth + 1;
