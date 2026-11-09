@@ -17,16 +17,16 @@ namespace maze_generator
             int coordsWidth = 2 * nodesWidth + 1;
             int nodesHeight = 26;
             int coordsHeight = 2 * nodesHeight + 1;
-            int iterations = nodesWidth * nodesHeight;
+            int iterations = nodesWidth * nodesHeight * 15;
             char dir;
             char newDir;
             int possibleDirLength;
+            int oX = nodesWidth - 1;
+            int oY = nodesHeight - 1;
 
             // Some arrays:        
             int[,] coords = new int[coordsWidth, coordsHeight];
             char[,] nodes = new char[nodesWidth, nodesHeight];
-            int oX = nodesWidth - 1;
-            int oY = nodesHeight - 1;
             char[] possibleDir = new char[4];
 
 
@@ -82,7 +82,7 @@ namespace maze_generator
 
                 // Randomize the new direction newDir
                 newDir = possibleDir[random.Next(0, possibleDirLength)];
-                Console.WriteLine(newDir);
+                //Console.WriteLine(newDir);
 
                 // Points the old origin point to the new origin point
                 nodes[oX, oY] = newDir;
@@ -137,37 +137,36 @@ namespace maze_generator
             // Seperate loop for nodes to coords setup
             for(int y = 0; y < nodesHeight; y++)
             {
-                Console.Write("{");
+                //Console.Write("{");
                 for(int x = 0; x < nodesWidth; x++)
                 {
                     
                     switch(nodes[x, y])
                     {
                         case ('w'):
-                            coords[2 * x, 2 * y - 1] = 0;
+                            coords[2 * x + 1, 2 * y + 1 - 1] = 0;
                             break;
                         case ('a'):
-                            coords[2 * x - 1, 2 * y] = 0;
+                            coords[2 * x + 1 - 1, 2 * y + 1] = 0;
                             break;
                         case ('s'):
-                            coords[2 * x, 2 * y + 1] = 0;
+                            coords[2 * x + 1, 2 * y + 1 + 1] = 0;
                             break;
                         case ('d'):
-                            coords[2 * x + 1, 2 * y] = 0;
+                            coords[2 * x + 1 + 1, 2 * y + 1] = 0;
                             break;
                     }
                     
-                    Console.Write($"{nodes[x, y]}, ");
+                    //Console.Write($"{nodes[x, y]}, ");
                 }
-                Console.WriteLine("}");
+                //Console.WriteLine("}");
             }
 
-            for (int y = 0; y < 53; y++)
+            for (int y = 0; y < coordsHeight; y++)
             {
-                for (int x = 0; x < 85; x++)
+                for (int x = 0; x < coordsWidth; x++)
                 {
-                    double nX = double.Parse(x);
-                    Console.Write("{0} ", coords[x, y] == 5 ? "X" : (Math.Floor(x/2.0) != x/2.0 && Math.Floor(y/2.0) != y/2.0) ? nodes[(nX*0.5+0.5), y/2+0.5].ToString() : " ");
+                    Console.Write("{0} ", coords[x, y] == 5 ? "X"/* : (Math.Floor(x/2.0) != x/2.0 && Math.Floor(y/2.0) != y/2.0) ? nodes[((x-1)/2), ((y-1)/2)].ToString() */: " ");
                 }
                 Console.WriteLine();
             }
