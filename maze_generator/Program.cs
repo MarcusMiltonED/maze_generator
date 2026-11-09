@@ -161,15 +161,102 @@ namespace maze_generator
                 }
                 //Console.WriteLine("}");
             }
-
+            /*
+            Console.Write("[");
+            for (int y = 0; y < coordsHeight; y++)
+            {
+                Console.Write("[");
+                for (int x = 0; x < coordsWidth; x++)
+                {
+                    Console.Write("{0} ", coords[x, y] == 5 ? "X": " ");
+                    Console.Write("{0}", coords[x, y] == 5 ? 5 : 0);
+                    if (x < coordsWidth - 1)
+                    {
+                        Console.Write(",");
+                    }
+                }
+                Console.Write("]{0}", y < coordsHeight - 1 ? "" : "");
+            }
+            Console.Write("→[A]");
+            */
+            /*
+            Console.Write("{");
             for (int y = 0; y < coordsHeight; y++)
             {
                 for (int x = 0; x < coordsWidth; x++)
                 {
-                    Console.Write("{0} ", coords[x, y] == 5 ? "X"/* : (Math.Floor(x/2.0) != x/2.0 && Math.Floor(y/2.0) != y/2.0) ? nodes[((x-1)/2), ((y-1)/2)].ToString() */: " ");
+                    //Console.Write("{0} ", coords[x, y] == 5 ? "X": " ");
+                    Console.Write("{0}", coords[x, y] == 5 ? 5 : 0);
+                    if (!(x == coordsWidth - 1 && y == coordsHeight - 1))
+                    {
+                        Console.Write(",");
+                    }
                 }
-                Console.WriteLine();
             }
+            Console.Write("}");
+            */
+            /*
+            Console.Write("[");
+            for (int y = 0; y < nodesHeight; y++)
+            {
+                Console.Write("[");
+                for (int x = 0; x < nodesWidth; x++)
+                {
+                    int d = 0;
+                    switch(nodes[x, y])
+                    {
+                        case ('w'):
+                            d = 1;
+                            break;
+                        case ('a'):
+                            d = 2;
+                            break;
+                        case ('s'):
+                            d = 3;
+                            break;
+                        case ('d'):
+                            d = 4;
+                            break;
+                    }
+                    Console.Write(d);
+                    if (x < nodesWidth - 1)
+                    {
+                        Console.Write(",");
+                    }
+                }
+                Console.Write("]{0}", y < nodesHeight - 1 ? "" : "");
+            }
+            Console.Write("→[A]");
+            */
+            Console.Write("{");
+            for (int y = 0; y < nodesHeight; y++)
+            {
+                for (int x = 0; x < nodesWidth; x++)
+                {
+                    int d = 0;
+                    switch (nodes[x, y])
+                    {
+                        case ('w'):
+                            d = 1;
+                            break;
+                        case ('a'):
+                            d = 2;
+                            break;
+                        case ('s'):
+                            d = 3;
+                            break;
+                        case ('d'):
+                            d = 4;
+                            break;
+                    }
+                    Console.Write(d);
+                    if (x < nodesWidth - 1)
+                    {
+                        Console.Write(",");
+                    }
+                }
+            }
+            Console.Write("→[A]");
         }
     }
 }
