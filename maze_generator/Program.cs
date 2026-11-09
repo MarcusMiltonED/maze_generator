@@ -13,9 +13,9 @@ namespace maze_generator
             Random random = new Random();
             // Hello
             // Some variables:
-            int nodesWidth = 42;
+            int nodesWidth = 25;
             int coordsWidth = 2 * nodesWidth + 1;
-            int nodesHeight = 26;
+            int nodesHeight = 16;
             int coordsHeight = 2 * nodesHeight + 1;
             int iterations = nodesWidth * nodesHeight * 15;
             char dir;
@@ -168,7 +168,7 @@ namespace maze_generator
                 Console.Write("[");
                 for (int x = 0; x < coordsWidth; x++)
                 {
-                    Console.Write("{0} ", coords[x, y] == 5 ? "X": " ");
+                    //Console.Write("{0} ", coords[x, y] == 5 ? "X": " ");
                     Console.Write("{0}", coords[x, y] == 5 ? 5 : 0);
                     if (x < coordsWidth - 1)
                     {
@@ -195,7 +195,7 @@ namespace maze_generator
             }
             Console.Write("}");
             */
-            /*
+            
             Console.Write("[");
             for (int y = 0; y < nodesHeight; y++)
             {
@@ -227,7 +227,8 @@ namespace maze_generator
                 Console.Write("]{0}", y < nodesHeight - 1 ? "" : "");
             }
             Console.Write("→[A]");
-            */
+            
+            /*
             Console.Write("{");
             for (int y = 0; y < nodesHeight; y++)
             {
@@ -256,7 +257,8 @@ namespace maze_generator
                     }
                 }
             }
-            Console.Write("→[A]");
+            Console.Write("→L4");
+            */
         }
     }
 }
